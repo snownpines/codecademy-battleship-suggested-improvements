@@ -32,37 +32,12 @@ for y in range(0, number_of_ships):
 print(the_ships)
 
 # dolt-skepp-generator
-for ship in range(0, number_of_ships):
 
-    #the_ships.append(['0'] * 2)
+def random_row(board):
+    return randint(0, len(board) - 1)
 
-    while True:
-        #print(len(board))
-        #print(board[0])
-        check_collide_row = randint(0, len(board) - 1) # row
-
-        check_collide_col = randint(0, len(board[0]) - 1) # col
-        #print(check_collide_row, check_collide_col)
-        for x in range(0, number_of_ships):
-            #print(x)
-            if check_collide_row == the_ships[x][0] and check_collide_col == the_ships[x][1]:
-                pass
-
-            else:
-                the_ships[ship][0] = check_collide_row
-
-                the_ships[ship][1] = check_collide_col
-
-                break
-
-
-#print(the_ships)
-
-#    def random_row(board):
-#        return randint(0, len(board) - 1)
-
-#    def random_col(board):
-#        return randint(0, len(board[0]) - 1)
+def random_col(board):
+    return randint(0, len(board[0]) - 1)
 
 #ship_row = random_row(board)
 #ship_col = random_col(board)
@@ -79,7 +54,7 @@ for turn in range(4):
     guess_col = int(input("Guess Col: ")) - 1
 
     # vinnarkravet
-    if guess_row == ship_row and guess_col == ship_col:
+    if guess_row == random_row and guess_col == random_col:
         print("Congratulations! You sunk my battleship!")
 
         # avbryter loopen så spelet slutar på försöket man vinner
